@@ -66,14 +66,32 @@ public class Board {
             "\u001B[94m",
             "\u001B[95m",
             "\u001B[96m",
-            "\u001B[90m"
+            "\u001B[90m",
+            "\u001B[41m", 
+            "\u001B[42m", 
+            "\u001B[43m", 
+            "\u001B[44m", 
+            "\u001B[45m", 
+            "\u001B[46m", 
+            "\u001B[100m", 
+            "\u001B[101m", 
+            "\u001B[102m", 
+            "\u001B[103m", 
+            "\u001B[104m"
         };
-        
+        final String RESET = "\u001B[0m";
+
         System.out.println("Solusi ditemukan:");
+    
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 String ch = board[i][j];
-                System.out.print(board[i][j]);
+                if (ch.trim().charAt(0) >= 'A' && ch.trim().charAt(0) - 'A' <='Z'){
+                    System.out.print(colors[ch.trim().charAt(0) - 'A'] + board[i][j] + RESET);
+                }
+                else{
+                    System.out.print(board[i][j]);
+                }
             }
             System.out.println();
         }
@@ -91,7 +109,7 @@ public class Board {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                sb.append(grid[i][j]);
+                sb.append(board[i][j]);
             }
             sb.append('\n');
         }

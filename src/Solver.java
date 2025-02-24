@@ -56,8 +56,4 @@ public class Solver {
     public long getAttempts() {
         return attempts;
     }
-
-    public boolean puzzleSolved(){
-        return solved;
-    }
 }

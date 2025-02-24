@@ -1,0 +1,7 @@
+Solution:
+AABBBC
+DBBEEC
+DDDEEC
+
+Execution time: 17 ms
+Iterations: 44

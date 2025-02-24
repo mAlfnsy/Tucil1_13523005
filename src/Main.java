@@ -1,12 +1,12 @@
 package src;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 
 import src.*;
-import src.FileManager.*;
 
 
 
@@ -15,6 +15,11 @@ public class Main {
         Scanner inputFileName = new Scanner(System.in);
         System.out.print("Masukkan path file input: ");
         String fileName = inputFileName.nextLine();
+        while (!fileName.endsWith(".txt")) {
+            System.out.println("Format file harus (.txt).");
+            System.out.print("Masukkan path file input: ");
+            fileName = inputFileName.nextLine();
+        } 
 
         try {
             inputFile pieces = FileManager.FileManager(fileName);
@@ -32,22 +37,20 @@ public class Main {
             Scanner userInput = new Scanner(System.in);
             System.out.print("\nSave solution to txt file? (y/n): ");
             String save = userInput.nextLine().trim().toLowerCase();
+            userInput.close();
 
             if (save.equals("y")){
-                String outputFilename = "solution_" + inputFileName;
-                       FileManager.saveText(outputFilename,
-                                       board.getBoard(),
-                                       executionTime, 
-                                       attempts);
+                String outputFilename = "solution_" + fileName;
+                       FileManager.saveToFile(outputFilename, board.getBoard(), executionTime, attempts);
                        System.out.println("Solution saved to: test/output/" + outputFilename);
             }
             else{
                 System.out.println("Solution unsaved.");
             }
             
-        } catch (FileNotFoundException e) {
-            System.out.println("File tidak ditemukan.");
-        } finally {
+        } catch (IOException e) {
+           System.out.println("Error: " + e.getMessage());
+       } finally {
             inputFileName.close();
         }
     }

@@ -1,0 +1,10 @@
+Solution:
+AAAAGG
+AAAEGG
+BBBEEE
+BBCCCC
+BDDCCF
+DDDFFF
+
+Execution time: 47 ms
+Iterations: 507703

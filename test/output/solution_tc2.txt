@@ -1,0 +1,11 @@
+Solution:
+AAAEEEF
+AAAAAHF
+BBBBBHF
+CCCIIHF
+CDDIFFF
+CDDGGGG
+CCCGGGG
+
+Execution time: 16 ms
+Iterations: 12306
